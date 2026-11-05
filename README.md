@@ -4,6 +4,7 @@ Reverse proxy con Apache: Apache (puerto 80) → blog.local (puerto 3000).
 
 ## Rutas
 - GET /saludo?nombre=X
+- GET /health
 - GET /info
 - GET /cotizacion
 - GET /articulos
@@ -16,3 +17,8 @@ Reverse proxy con Apache: Apache (puerto 80) → blog.local (puerto 3000).
     npm install
     npm run build
     npm start
+
+## Docker
+    docker build -t blog-local .
+    docker run -d --name nodo1 -p 9100:9000 blog-local
+    curl.exe http://localhost:9100/health
