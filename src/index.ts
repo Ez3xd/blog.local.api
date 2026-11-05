@@ -20,6 +20,14 @@ app.get("/saludo", (req: Request, res: Response) => {
   res.json({ mensaje: `Hola, ${nombre}!` });
 });
 
+app.get("/health", (_req: Request, res: Response) => {
+  res.json({
+    status: "ok",
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+  });
+});
+
 app.get("/info", (_req, res) => {
   res.json({
     servicio: "blog.local",
